@@ -5,6 +5,14 @@
         "description": "Documentação da API de produtos",
         "version": "1.0.0"
     },
+
+    "servers": [
+        {
+            "url": "https://api-produtos.onrender.com",
+            "description": "Servidor em produção"
+        }
+    ],
+
     "basePAth": "/",
     "paths": {
         "/produto": {

@@ -8,7 +8,7 @@
 
     "servers": [
         {
-            "url": "https://api-produtos.onrender.com",
+            "url": "https://api-kvxp.onrender.com/",
             "description": "Servidor em produção"
         }
     ],

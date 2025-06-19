@@ -1,0 +1,207 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Products",
+        "description": "Documentação da API de produtos",
+        "version": "1.0.0"
+    },
+    "basePAth": "/",
+    "paths": {
+        "/produto": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "nome": "Laranja",
+                                    "descricao": "Saco de Laranja",
+                                    "cor": "Laranja",
+                                    "peso": "1",
+                                    "tipo": "alimento"
+                                }
+                            }
+                        }
+                    },
+
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            },
+
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "nome": {
+                                        "type": "string"
+                                    },
+                                    "descricao": {
+                                        "type": "string"
+                                    },
+                                    "cor": {
+                                        "type": "string"
+                                    },
+                                    "peso": {
+                                        "type": "number"
+                                    },
+                                    "tipo": {
+                                        "type": "string"
+                                    }
+                                },
+
+                                "example": {
+                                    "nome": "Laranja",
+                                    "descricao": "Saco de Laranja",
+                                    "cor": "Laranja",
+                                    "peso": "1",
+                                    "tipo": "alimento"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Produto cadastrado com sucesso!"
+                    },
+
+                    "400": {
+                        "description": "Informar pelo menos um campo é obrigatório!"
+                    },
+
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            },
+
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "nome": {
+                                        "type": "string"
+                                    },
+                                    "descricao": {
+                                        "type": "string"
+                                    },
+                                    "cor": {
+                                        "type": "string"
+                                    },
+                                    "peso": {
+                                        "type": "number"
+                                    },
+                                    "tipo": {
+                                        "type": "string"
+                                    }
+                                },
+
+                                "example": {
+                                    "nome": "Laranja",
+                                    "descricao": "Saco de Laranja",
+                                    "cor": "Laranja",
+                                    "peso": "1",
+                                    "tipo": "alimento"
+                                }
+                            }
+                        }
+                    }
+                },
+
+                "responses": {
+                    "200": {
+                        "description": "Produto PRODUCTNAME atualizado com sucesso!"
+                    },
+
+                    "400": {
+                        "description": "Não foi informado o produto a ser atualizado OU Informe pelo menos um campo para atualização"
+                    },
+                    
+                    "404": {
+                        "description": "Produto inexistente"
+                    },
+
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            },
+
+            "delete": {
+                "parameters": [
+                    {
+                    "in": "query",
+                    "name": "nome",
+                    "type": "string",
+                    "required": "true"
+                    }
+                ],
+
+                "responses": {
+                    "200": {
+                        "description": "Produto PRODUCTNAME deletado com sucesso!"
+                    },
+
+                    "400": {
+                        "description": "Nome do produto não informado"
+                    },
+
+                    "404": {
+                        "description": "Produto não encontrado"
+                    },
+
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        
+        "/produto/name": {
+            "get": {
+                "parameters": [
+                    {
+                    "in": "query",
+                    "name": "nome",
+                    "type": "string",
+                    "required": "true"
+                    }
+                ],
+
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "nome": "Laranja",
+                                    "descricao": "Saco de Laranja",
+                                    "cor": "Laranja",
+                                    "peso": "1",
+                                    "tipo": "alimento"
+                                }
+                            }
+                        }
+                    },
+
+                    "404": {
+                        "description": "Produto inexistente"
+                    },
+
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        }
+        
+    }
+}
